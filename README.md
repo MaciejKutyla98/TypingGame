@@ -12,7 +12,7 @@ The game was created with a **React.js v17.0.2**
 npm start
 
 ```
-4. Open localhost:3000 in your browser
+4. Open localhost:3000 (or some other default port) in your browser
 5. Have fun :)
 
 
