@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 html {
-    font-size: 20px;
+    font-size: 16px;
     height: 100%;
     font-family: 'Architects Daughter' ,'Arial', cursive;
 }
 
 body {
     background-image: linear-gradient(black, red);
-    margin: 20px 20px 20px 20px;
+    margin:  20px;
     padding: 20px 20px 20px;
     overflow: hidden;
     min-height: 100%;
 }
 
 div.current-score {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
     text-align: right;
-    margin: 25px 150px 20px 20px;
+    margin: 25px 150px 150px 20px;
 }
 
 div.word-generator {
@@ -31,20 +31,21 @@ div.input-form {
     text-align: center;
 }
 
-#user-input {
+.user-input {
     background-image: linear-gradient(red, black);
     color: white;
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: center;
     border: 2px solid #fff;
     border-radius: 20px/50px;
+    font-family: 'Architects Daughter' ,'Arial', cursive;
 }
 
 div.reverse-timer {
     font-size: 3rem;
     color: white;
     text-align: center;
-    margin: 25px 25px 25px 25px;
+    margin: 25px;
 }
 
 .popup {
@@ -74,6 +75,6 @@ div.reverse-timer {
     border: 2px solid #fff;
     border-radius: 20px/50px;
     color: white;
-    font-size: 36px;
+    font-size: 2rem;
     padding: 20px 35px 20px;
 }

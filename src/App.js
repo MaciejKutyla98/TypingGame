@@ -12,7 +12,7 @@ function Score(props) {
     );
 }
 
-function WordGenerator(props){
+function DisplayWord(props){
     return (
         <div className="word-generator">
             <p>
@@ -27,7 +27,7 @@ function InputForm(props) {
         <div className='input-form'>
             <form>
                 <input type="text"
-                       id="user-input"
+                       className="user-input"
                        value={props.value}
                        autocomplete="off"
                        onChange={(e) => {
@@ -49,7 +49,7 @@ function Timer(props) {
 }
 
 function Popup(props) {
-    return (props.trigger) ? (
+    return (
         <div className="popup">
             <div className="popup-inner">
                 <h2>Your score is: {props.score.toFixed(2)}</h2>
@@ -58,7 +58,7 @@ function Popup(props) {
                 >Play again!</button>
             </div>
         </div>
-    ) : "";
+    );
 }
 
 function App() {
@@ -68,54 +68,68 @@ function App() {
     const [word, setWord] = useState(generateWord());
     const [enteredWord, setEnteredWord] = useState('');
     const [score, setScore] = useState(0);
-    const [seconds, setSeconds] = useState(1);
+    const [seconds, setSeconds] = useState(10);
     const [popup, setPopup] = useState(false);
     const [counter, setCounter] = useState(0);
-    const [game, setGame] = useState(false);
+    const [isGameInProgress, setIsGameInProgress] = useState(false);
+
+    function handleCorrectWord() {
+        setScore((prevScore) => prevScore + seconds);
+        setEnteredWord('');
+        setWord(generateWord());
+        setSeconds(10);
+        setCounter(counter + 1);
+    }
+
+    function handleEndTime() {
+        setPopup(true);
+        setSeconds(0);
+        setIsGameInProgress(false);
+    }
+
+    function handleGameStart() {
+        setScore(0);
+        setSeconds(10);
+        setEnteredWord('');
+        setWord(generateWord());
+        setCounter(0);
+        setPopup(false);
+    }
 
     useEffect(()  => {
         const timer =
             seconds > 0.1 && setTimeout(() => setSeconds(seconds - 0.1), 100);
         if (word === enteredWord) {
-            setScore((prevScore) => prevScore + seconds);
-            setEnteredWord('');
-            setWord(generateWord());
-            setSeconds(10);
-            setCounter(counter + 1);
+            handleCorrectWord();
         }
         if (seconds < 0.1) {
-            setPopup(true);
-            setSeconds(0);
-            setGame(false);
+            handleEndTime();
         }
-        if (game == true){
-            setScore(0);
-            setSeconds(10);
-            setEnteredWord('');
-            setWord(generateWord());
-            setCounter(0);
-            setPopup(false);
+        if (isGameInProgress == true){
+            handleGameStart();
         }
         return () => clearInterval(timer);
-    }, [word, enteredWord, seconds, game]);
+    }, [word, enteredWord, seconds, isGameInProgress]);
 
   return (
     <div className="Game">
         <Score score={score} counter={counter}/>
-        <WordGenerator word={word}/>
+        <DisplayWord word={word}/>
         <InputForm value={enteredWord}
                    onChange={(newValue) => {
                        setEnteredWord(newValue)
                    }}
         />
         <Timer seconds={seconds}/>
-        <Popup trigger={popup}
+        {popup &&
+        (<Popup trigger={popup}
                score={score}
                onClick={() => {
-                   setGame(true);
+                   setIsGameInProgress(true);
                    setPopup(false);
                }}
-        />
+         />
+        )}
     </div>
   );
 }
