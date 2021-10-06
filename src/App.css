@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+html {
+    font-size: 20px;
+    height: 100%;
+    font-family: 'Architects Daughter' ,'Arial', cursive;
+}
+
+body {
+    background-image: linear-gradient(black, red);
+    margin: 20px 20px 20px 20px;
+    padding: 20px 20px 20px;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+div.current-score {
+    font-size: 2rem;
+    color: white;
+    text-align: right;
+    margin: 25px 150px 20px 20px;
+}
+
+div.word-generator {
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+}
+
+div.input-form {
+    text-align: center;
+}
+
+#user-input {
+    background-image: linear-gradient(red, black);
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+}
+
+div.reverse-timer {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin: 25px 25px 25px 25px;
+}
+
+.popup {
+    background-image: linear-gradient(black, red);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+}
+
+.popup-inner {
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 125px 0;
+}
+
+.close-btn {
+    background-image: linear-gradient(red, black);
+    font-family: 'Architects Daughter' ,'Arial', cursive;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    color: white;
+    font-size: 36px;
+    padding: 20px 35px 20px;
+}
