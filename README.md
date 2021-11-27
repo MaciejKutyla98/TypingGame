@@ -5,15 +5,7 @@ This is a simple game that has you typing the displayed text on time. The words 
 The game was created with a **React.js v17.0.2**, **HTML5** and **CSS3**.
 
 ## Run
-1. Download whole repository
-2. Go to the main project folder
-3. Write  in terminal:
-```
-npm start
-```
-4. Open localhost:3000 (or any other default port) in your browser
-5. Have fun :)
-
+If you want to know how app looks like, just go here: https://typing-game98.herokuapp.com/
 
 
 
